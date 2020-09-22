@@ -13,7 +13,6 @@ export const listenAuthState = () => {
           .doc(uid)
           .get()
           .then((snapshot) => {
-            console.log(snapshot);
             const data = snapshot.data();
 
             dispatch(

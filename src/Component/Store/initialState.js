@@ -7,5 +7,8 @@ const initialState = {
     image: [],
     twitterName: "",
   },
+  tweets: {
+    text: [],
+  },
 };
 export default initialState;
