@@ -13,6 +13,7 @@ export const fetchText = () => {
         snapshots.forEach((snapshot) => {
           const text = snapshot.data();
           tweetList.push(text);
+          console.log(tweetList);
         });
         dispatch(fetchTextAction(tweetList));
       });
@@ -21,12 +22,16 @@ export const fetchText = () => {
 
 export const saveText = (text) => {
   return async () => {
-    const timestamp = FirebaseTimestamp.now();
-
-    const data = {
-      text: text,
-      updated_at: timestamp,
-    };
-    return tweetRef.doc().set(data);
+    if (text.length === 0) {
+      alert("なにも書いてないじゃん");
+      return false;
+    } else {
+      const timestamp = FirebaseTimestamp.now();
+      const data = {
+        text: text,
+        updated_at: timestamp,
+      };
+      return tweetRef.doc().set(data);
+    }
   };
 };
