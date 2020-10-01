@@ -45,7 +45,6 @@ export const twitterSignIn = () => {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
         const user = result.user;
 
         const twitterName = result.additionalUserInfo.username;

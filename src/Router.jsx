@@ -1,5 +1,4 @@
 import React from "react";
-// import Auth from "./Auth";
 import { Route, Switch } from "react-router";
 import Auth from "./Auth";
 import Login from "./Templete/Login";

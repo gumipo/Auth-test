@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+}
+
+.p-chat__row {
+  align-items: flex-start;
+}
+
+.p-chat__reverse {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.p-text-revers {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-right: 30px;
+}

@@ -1,8 +1,9 @@
 import { createSelector } from "reselect";
 
-const usersSelector = (state) => state.tweets;
+const tweetsSelector = (state) => state.tweets;
+const newTweetsSelector = (state) => state.newTweets;
 
 export const getTweetText = createSelector(
-  [usersSelector],
-  (state) => state.text
+  [tweetsSelector],
+  (state) => state.list
 );

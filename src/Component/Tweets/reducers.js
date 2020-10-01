@@ -6,7 +6,7 @@ export const tweetsReducer = (state = initialState.tweets, action) => {
     case Actions.FETCH_TEXT:
       return {
         ...state,
-        text: [...action.payload],
+        list: [...action.payload],
       };
     default:
       return state;

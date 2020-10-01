@@ -4,11 +4,14 @@ const initialState = {
     uid: "",
     role: "",
     username: "",
-    image: [],
+    image: "",
     twitterName: "",
   },
   tweets: {
-    text: [],
+    list: [],
+  },
+  newTweets: {
+    list: [],
   },
 };
 export default initialState;
