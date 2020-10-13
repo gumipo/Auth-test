@@ -13,6 +13,7 @@ import { getTweetText } from "../Component/Tweets/selector";
 import styled from "styled-components";
 import TextIndicate from "../Component/TextIndicate";
 import { db } from "../Firebase/index";
+import { fetchTextAction } from "../Component/Tweets/actions";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Home = () => {
   useEffect(() => {
     const unsubscribe = db
       .collection("tweets")
-      .orderBy("updated_at", "desc")
+      .orderBy("updated_at", "asc")
       .onSnapshot((snapshots) => {
         snapshots.docChanges().forEach((change) => {
           const tweet = change.doc.data();
@@ -49,7 +50,7 @@ const Home = () => {
               break;
           }
         });
-        dispatch(fetchNewTweetText(tweetsList));
+        dispatch(fetchTextAction(tweetsList));
       });
     return () => unsubscribe();
   }, []);

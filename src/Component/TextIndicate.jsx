@@ -1,5 +1,5 @@
 import React from "react";
-import { getUserId } from "../Component/Users/selector";
+import { getUserId } from "./Users/selector";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
