@@ -3,6 +3,7 @@ import { PrimaryButton } from "../Component/UIkit";
 import { useDispatch } from "react-redux";
 import { twitterSignIn } from "../Component/Users/operations";
 import styled from "styled-components";
+import { fetchTextAction } from "../Component/Tweets/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,10 @@ const Login = () => {
     <StyledLogin>
       <PrimaryButton
         label="ツイッターでログイン"
-        onClick={() => dispatch(twitterSignIn())}
+        onClick={() => {
+          fetchTextAction([]);
+          dispatch(twitterSignIn());
+        }}
       ></PrimaryButton>
     </StyledLogin>
   );

@@ -21,7 +21,7 @@ export const saveText = (text) => {
       const image = users.image;
       const uid = users.uid;
 
-      const timestamp = FirebaseTimestamp.now();
+      const  timestamp = FirebaseTimestamp.now();
       const data = {
         text: text,
         user: user,

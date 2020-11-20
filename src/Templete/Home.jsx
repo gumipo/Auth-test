@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GreyButton, TextInput } from "../Component/UIkit";
 import { signOut } from "../Component/Users/operations";
-import { fetchNewTweetText, saveText } from "../Component/Tweets/operations";
+import { saveText } from "../Component/Tweets/operations";
 import {
   getTwitterName,
   getUserImage,
@@ -37,14 +37,15 @@ const Home = () => {
   useEffect(() => {
     const unsubscribe = db
       .collection("tweets")
-      .orderBy("updated_at", "asc")
+      .orderBy("updated_at", "desc")
+      .limit(30)
       .onSnapshot((snapshots) => {
         snapshots.docChanges().forEach((change) => {
           const tweet = change.doc.data();
           const changeType = change.type;
           switch (changeType) {
             case "added":
-              tweetsList.splice(0, 0, tweet);
+              tweetsList.push(tweet);
               break;
             default:
               break;
@@ -60,7 +61,13 @@ const Home = () => {
       <TweetHeader>
         <UserIcon src={userImage} alt="ユーザー画像" />
         <UserName>{"TwtterName : " + twitterName}</UserName>
-        <GreyButton label="ログアウト" onClick={() => dispatch(signOut())} />
+        <GreyButton
+          label="ログアウト"
+          onClick={() => {
+            dispatch(fetchTextAction([]));
+            dispatch(signOut());
+          }}
+        />
       </TweetHeader>
 
       <NameBox>

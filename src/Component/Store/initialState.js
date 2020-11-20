@@ -10,7 +10,7 @@ const initialState = {
   tweets: {
     list: [],
   },
-  newTweets: {
+  newTweets:  {
     list: [],
   },
 };
